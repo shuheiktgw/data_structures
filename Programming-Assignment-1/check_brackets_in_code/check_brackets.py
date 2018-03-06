@@ -35,7 +35,9 @@ class Stack:
         if self.first is None:
             raise RuntimeError('Stack is empty!')
 
-
+        value = self.first.value
+        self.first = self.first.next_node
+        return value
 
 
 if __name__ == "__main__":
