@@ -58,4 +58,8 @@ if __name__ == "__main__":
                 print(i + 1)
                 sys.exit(None)
 
+    if len(opening_brackets_stack) != 0:
+        print(opening_brackets_stack[0].position + 1)
+        sys.exit(None)
+
     print('Success')
