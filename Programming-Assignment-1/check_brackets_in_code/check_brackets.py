@@ -46,11 +46,16 @@ if __name__ == "__main__":
     opening_brackets_stack = []
     for i, next in enumerate(text):
         if next == '(' or next == '[' or next == '{':
-            # Process opening bracket, write your code here
-            pass
+            opening_brackets_stack.append(Bracket(next, i))
 
         if next == ')' or next == ']' or next == '}':
-            # Process closing bracket, write your code here
-            pass
+            if len(opening_brackets_stack) == 0:
+                print(i + 1)
+                sys.exit(None)
 
-    # Printing answer, write your code here
+            bracket = opening_brackets_stack.pop()
+            if not bracket.match(next):
+                print(i + 1)
+                sys.exit(None)
+
+    print('Success')
